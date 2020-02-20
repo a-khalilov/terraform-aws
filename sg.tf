@@ -1,8 +1,8 @@
 resource "aws_security_group" "jenkins_sg" {
   name        = "Jenkins security group"
-  vpc_id = aws_vpc.main_vpc.id
+  vpc_id      = aws_vpc.main_vpc.id
   description = "Allow HTTP and SSH inbound traffic"
-  
+
   ingress {
     from_port   = 22
     to_port     = 22
@@ -18,10 +18,10 @@ resource "aws_security_group" "jenkins_sg" {
   }
 
   egress {
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
-    cidr_blocks     = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
 
@@ -31,7 +31,7 @@ resource "aws_security_group" "jenkins_sg" {
 
 resource "aws_security_group" "alb_sg" {
   name        = "Aplication LB security group"
-  vpc_id = aws_vpc.main_vpc.id
+  vpc_id      = aws_vpc.main_vpc.id
   description = "Allow HTTP and SSH inbound traffic"
   /*
   ingress {
@@ -49,9 +49,9 @@ resource "aws_security_group" "alb_sg" {
   }
 
   egress {
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
-    cidr_blocks     = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
